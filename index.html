@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ortota Game Limited — Games, Systematically Made</title>
+<meta name="description" content="Ortota Game Limited designs and publishes casual mobile games with a rigorous, systematic approach to play.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2F2F0;
+    --white:#FFFFFF;
+    --ink:#111111;
+    --grey:#6B6B6B;
+    --hair:#D6D6D2;
+    --red:#E2231A;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+    font-size:16.5px;font-weight:400;line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .disp{font-family:'Archivo',Helvetica,Arial,sans-serif;font-weight:700;letter-spacing:-.045em;line-height:.94}
+  .lbl{
+    font-family:'Archivo',sans-serif;font-size:.66rem;font-weight:600;
+    letter-spacing:.19em;text-transform:uppercase;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1260px;margin:0 auto;padding:0 34px}
+  .rule{height:1px;background:var(--hair);width:100%}
+  .rule-red{height:3px;background:var(--red);width:100%}
+
+  /* ---------- masthead ---------- */
+  header{position:sticky;top:0;z-index:60;background:rgba(242,242,240,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--ink)}
+  .bar{display:flex;align-items:center;justify-content:space-between;height:70px;gap:24px}
+  .mark{display:flex;align-items:center;gap:13px}
+  .mark .sq{width:19px;height:19px;background:var(--red);flex:none}
+  .mark .nm{font-family:'Archivo',sans-serif;font-weight:700;font-size:1rem;letter-spacing:-.02em}
+  .bar nav{display:flex;gap:30px}
+  .bar nav a{font-family:'Archivo',sans-serif;font-size:.66rem;font-weight:600;letter-spacing:.17em;text-transform:uppercase;color:var(--grey);padding-bottom:3px;border-bottom:2px solid transparent}
+  .bar nav a:hover{color:var(--ink);border-bottom-color:var(--red)}
+  .bar .idx{font-family:'Archivo',sans-serif;font-size:.66rem;font-weight:600;letter-spacing:.17em;color:var(--grey)}
+
+  /* ---------- hero ---------- */
+  .hero{padding:74px 0 0}
+  .hero .top{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:16px}
+  .hero h1{font-size:clamp(2.7rem,8.2vw,7.2rem);max-width:15ch;margin:34px 0 0}
+  .hero h1 em{font-style:normal;color:var(--red)}
+  .hero .body{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:54px;padding-bottom:60px}
+  .hero .body p{font-size:1.06rem;line-height:1.68;color:#2A2A2A;max-width:44ch}
+  .hero .body .meta{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+  .hero .body .meta div{display:flex;gap:14px;align-items:baseline;border-top:1px solid var(--hair);padding-top:12px;width:100%}
+  .hero .body .meta span:first-child{font-family:'Archivo',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.17em;text-transform:uppercase;color:var(--grey);min-width:104px}
+  .hero .body .meta span:last-child{font-weight:500;font-size:.95rem}
+
+  .cta{display:flex;gap:0;margin-bottom:0;border-top:1px solid var(--hair);padding:0}
+  .cta a{
+    flex:1;padding:26px 0;border-right:1px solid var(--hair);
+    font-family:'Archivo',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.17em;text-transform:uppercase;
+    display:flex;align-items:center;justify-content:space-between;padding-right:28px;
+    transition:background .16s ease,color .16s ease;
+  }
+  .cta a:first-child{padding-left:0}
+  .cta a:last-child{border-right:0;padding-left:34px}
+  .cta a:hover{background:var(--red);color:var(--white)}
+  .cta a i{font-style:normal;font-size:1rem}
+
+  /* ---------- figures ---------- */
+  .figs{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--hair);border-bottom:1px solid var(--ink)}
+  .figs div{padding:34px 22px 30px;border-right:1px solid var(--hair)}
+  .figs div:last-child{border-right:0}
+  .figs .n{font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(2rem,4vw,3.1rem);letter-spacing:-.05em;line-height:1;color:var(--red);margin-bottom:10px}
+  .figs .t{font-family:'Archivo',sans-serif;font-size:.63rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+
+  /* ---------- sections ---------- */
+  section{padding:88px 0}
+  .shead{display:grid;grid-template-columns:120px 1fr;gap:0;align-items:start;margin-bottom:52px;border-top:1px solid var(--ink);padding-top:22px}
+  .shead .no{font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(2.4rem,5vw,3.6rem);letter-spacing:-.05em;color:var(--red);line-height:.9}
+  .shead h2{font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(1.5rem,3.3vw,2.5rem);letter-spacing:-.035em;line-height:1.06;max-width:20ch;margin-bottom:16px}
+  .shead p{color:var(--grey);max-width:56ch;font-size:1rem}
+
+  .cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--hair)}
+  .cols3 article{padding:32px 30px 36px 0;border-right:1px solid var(--hair)}
+  .cols3 article:last-child{border-right:0}
+  .cols3 article:nth-child(2){padding-left:34px}
+  .cols3 article:nth-child(3){padding-left:34px}
+  .cols3 h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.12rem;letter-spacing:-.02em;margin:16px 0 12px}
+  .cols3 p{font-size:.95rem;color:#3A3A3A}
+  .cols3 .num{font-family:'Archivo',sans-serif;font-size:.66rem;font-weight:600;letter-spacing:.17em;color:var(--grey)}
+
+  /* poster */
+  .poster-wrap{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--ink);background:var(--white)}
+  .poster-txt{padding:52px 48px}
+  .poster-txt .k{font-family:'Archivo',sans-serif;font-size:.64rem;font-weight:600;letter-spacing:.19em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:22px}
+  .poster-txt h2{font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(1.5rem,2.9vw,2.2rem);letter-spacing:-.035em;line-height:1.08;margin-bottom:20px}
+  .poster-txt p{color:#3A3A3A;margin-bottom:15px;font-size:.98rem}
+  .tags{display:flex;flex-wrap:wrap;gap:0;margin-top:26px;border-top:1px solid var(--hair)}
+  .tags span{font-family:'Archivo',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--grey);padding:12px 18px 0 0;margin-right:18px}
+
+  .poster{
+    background:var(--red);position:relative;overflow:hidden;min-height:430px;
+    display:grid;place-items:center;
+  }
+  .poster .circle{
+    width:230px;height:230px;border-radius:50%;background:var(--ink);
+    position:relative;z-index:2;
+  }
+  .poster .grid{
+    position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.22) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.22) 1px,transparent 1px);
+    background-size:calc(100%/6) calc(100%/6);
+  }
+  .poster .q{
+    position:absolute;left:0;bottom:0;width:50%;height:50%;
+    background:var(--white);
+  }
+  .poster .cap{
+    position:absolute;left:20px;top:18px;z-index:3;
+    font-family:'Archivo',sans-serif;font-size:.6rem;font-weight:600;letter-spacing:.2em;
+    text-transform:uppercase;color:rgba(255,255,255,.9);
+  }
+  .poster .cap2{
+    position:absolute;right:20px;bottom:18px;z-index:3;
+    font-family:'Archivo',sans-serif;font-size:.6rem;font-weight:600;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--red);
+  }
+
+  /* principles list */
+  .plist{border-top:1px solid var(--ink)}
+  .prow{display:grid;grid-template-columns:110px 1fr 1.1fr;gap:0;border-bottom:1px solid var(--hair);padding:26px 0;align-items:start}
+  .prow .pn{font-family:'Archivo',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.14em;color:var(--red)}
+  .prow h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.06rem;letter-spacing:-.02em}
+  .prow p{font-size:.94rem;color:#3A3A3A;padding-left:40px}
+
+  /* contact */
+  .contact{background:var(--red);color:var(--white);padding:70px 0}
+  .contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+  .contact h2{font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(1.9rem,4vw,3rem);letter-spacing:-.045em;line-height:.98;margin-bottom:20px}
+  .contact p{color:rgba(255,255,255,.86);max-width:44ch;font-size:1rem}
+  .contact .cards{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(255,255,255,.45)}
+  .contact .cards div{padding:22px 0;border-bottom:1px solid rgba(255,255,255,.45)}
+  .contact .cards small{display:block;font-family:'Archivo',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.17em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:7px}
+  .contact .cards a{font-family:'Archivo',sans-serif;font-weight:600;font-size:1.06rem;letter-spacing:-.01em;word-break:break-all;border-bottom:2px solid rgba(255,255,255,.45)}
+  .contact .cards a:hover{border-bottom-color:var(--white)}
+
+  /* footer */
+  footer{padding:34px 0 46px;border-top:1px solid var(--ink)}
+  footer .frow{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;align-items:baseline}
+  footer .cp{font-family:'Archivo',sans-serif;font-size:.63rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+  footer nav{display:flex;gap:28px}
+  footer nav a{font-family:'Archivo',sans-serif;font-size:.63rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+  footer nav a:hover{color:var(--red)}
+
+  @media(max-width:960px){
+    .bar nav{display:none}
+    .hero .body{grid-template-columns:1fr;gap:34px}
+    .figs{grid-template-columns:repeat(2,1fr)}
+    .figs div:nth-child(2){border-right:0}
+    .figs div:nth-child(1),.figs div:nth-child(2){border-bottom:1px solid var(--hair)}
+    .shead{grid-template-columns:70px 1fr}
+    .cols3{grid-template-columns:1fr}
+    .cols3 article{border-right:0;border-bottom:1px solid var(--hair);padding:26px 0!important}
+    .cols3 article:last-child{border-bottom:0}
+    .poster-wrap{grid-template-columns:1fr}
+    .poster-txt{padding:34px 26px}
+    .poster{min-height:320px;order:-1}
+    .prow{grid-template-columns:60px 1fr;row-gap:8px}
+    .prow p{padding-left:0;grid-column:1/-1}
+    .contact .wrap{grid-template-columns:1fr;gap:34px}
+    .contact{padding:50px 0}
+    section{padding:60px 0}
+    .hero{padding:50px 0 0}
+    .cta{flex-direction:column}
+    .cta a,.cta a:last-child{border-right:0;border-bottom:1px solid var(--hair);padding:20px 0!important}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="mark" href="/"><span class="sq"></span><span class="nm">Ortota Game Limited</span></a>
+    <nav>
+      <a href="#studio">Studio</a>
+      <a href="#titles">Titles</a>
+      <a href="#method">Method</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <span class="idx">EST. 2019</span>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="top">
+      <span class="lbl">Independent Game Developer</span>
+      <span class="lbl" style="color:var(--red)">No. 01 — Overview</span>
+    </div>
+    <div class="rule"></div>
+    <h1>Games made <em>systematically</em>, not accidentally.</h1>
+
+    <div class="body">
+      <p>
+        Ortota Game Limited is an independent studio building casual games for mobile.
+        We treat game design as a discipline with measurable inputs: a core loop, a
+        difficulty curve, a session length, and a reason to return. Everything else is
+        decoration.
+      </p>
+      <div class="meta">
+        <div><span>Entity</span><span>Ortota Game Limited</span></div>
+        <div><span>Founded</span><span>2019</span></div>
+        <div><span>Discipline</span><span>Casual &amp; Puzzle</span></div>
+        <div><span>Platforms</span><span>iOS · Android</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap" style="padding:0 34px">
+    <div class="cta">
+      <a href="#titles"><span>View our titles</span><i>↓</i></a>
+      <a href="#contact"><span>Start a conversation</span><i>→</i></a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap" style="padding:0 34px">
+  <div class="figs">
+    <div><div class="n">2019</div><div class="t">Established</div></div>
+    <div><div class="n">28</div><div class="t">Titles Released</div></div>
+    <div><div class="n">41M</div><div class="t">Total Installs</div></div>
+    <div><div class="n">7</div><div class="t">Years of Updates</div></div>
+  </div>
+</div>
+
+<section id="studio">
+  <div class="wrap">
+    <div class="shead">
+      <div class="no">01</div>
+      <div>
+        <h2>The studio</h2>
+        <p>
+          A small team with a narrow focus. We do not chase genres; we build one kind of
+          game very well and refine it across releases.
+        </p>
+      </div>
+    </div>
+    <div class="cols3">
+      <article>
+        <div class="num">01 / Discipline</div>
+        <h3>Design before code</h3>
+        <p>Every mechanic is specified in writing before an engineer touches it. If a rule cannot be stated simply, it is not ready to be built.</p>
+      </article>
+      <article>
+        <div class="num">02 / Evidence</div>
+        <h3>Measure, then decide</h3>
+        <p>Prototypes ship with instrumentation from the first build. We tune difficulty from player data rather than from internal opinion.</p>
+      </article>
+      <article>
+        <div class="num">03 / Longevity</div>
+        <h3>Support after launch</h3>
+        <p>Released titles keep receiving compatibility and stability work. A game is not finished on the day it appears in a store.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="titles" style="padding-top:0">
+  <div class="wrap">
+    <div class="shead">
+      <div class="no">02</div>
+      <div>
+        <h2>Selected title</h2>
+        <p>Our lead product, and the clearest expression of how we work.</p>
+      </div>
+    </div>
+    <div class="poster-wrap">
+      <div class="poster-txt">
+        <span class="k">Flagship — 2026</span>
+        <h2>Nonowork — a logic puzzle with no clock and no penalty.</h2>
+        <p>
+          A grid-based deduction game built around a single rule set that is introduced
+          cleanly, then elaborated across several hundred hand-authored boards. There is
+          no timer, no fail state and no resource to run out of.
+        </p>
+        <p>
+          Progress saves on every move. The full game is playable offline, and nothing in
+          the progression requires a purchase to complete.
+        </p>
+        <div class="tags">
+          <span>Puzzle</span><span>Offline</span><span>Hand-built</span><span>Free to Start</span>
+        </div>
+      </div>
+      <div class="poster">
+        <div class="grid"></div>
+        <div class="q"></div>
+        <div class="circle"></div>
+        <div class="cap">Ortota / Composition 02</div>
+        <div class="cap2">Fig. A</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="method" style="padding-top:0">
+  <div class="wrap">
+    <div class="shead">
+      <div class="no">03</div>
+      <div>
+        <h2>Operating principles</h2>
+        <p>Four rules that constrain every product decision we make.</p>
+      </div>
+    </div>
+    <div class="plist">
+      <div class="prow">
+        <div class="pn">01</div>
+        <h3>No manufactured waiting</h3>
+        <p>We do not add timers, energy meters or cooldowns to games that do not need them. Friction is a design failure, not a monetisation tool.</p>
+      </div>
+      <div class="prow">
+        <div class="pn">02</div>
+        <h3>Clear pricing</h3>
+        <p>Any purchase is priced and described before the button is pressed. Rewarded advertising is offered as a choice, never imposed as a gate.</p>
+      </div>
+      <div class="prow">
+        <div class="pn">03</div>
+        <h3>Minimal data</h3>
+        <p>We collect only what is required to run and improve the game. The <a href="/privacy/" style="color:var(--red);text-decoration:underline">Privacy Policy</a> states this without legal padding.</p>
+      </div>
+      <div class="prow">
+        <div class="pn">04</div>
+        <h3>Fix before feature</h3>
+        <p>Known defects are resolved ahead of new content. A crash is not a roadmap item; it is a broken product.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <h2>Get in<br>touch</h2>
+      <p>
+        Publishers, distribution partners, licensors and players are all welcome to write.
+        Enquiries reach the studio team directly and are answered in turn.
+      </p>
+    </div>
+    <div class="cards">
+      <div>
+        <small>General &amp; Player Support</small>
+        <a href="mailto:ortotablog@gmail.com">ortotablog@gmail.com</a>
+      </div>
+      <div>
+        <small>Business &amp; Publishing</small>
+        <a href="mailto:ortotablog@gmail.com">ortotablog@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap frow">
+    <div class="cp">© 2026 Ortota Game Limited — All Rights Reserved</div>
+    <nav>
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Service</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
